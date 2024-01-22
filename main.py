@@ -1,7 +1,6 @@
 from flask import *
 import json
 
-
 from textblob import TextBlob
 from dataclasses import dataclass
 from textblob_sentiment_script import Mood
