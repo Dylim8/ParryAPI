@@ -1,5 +1,6 @@
 from flask import *
-import json, time
+import json
+
 
 from textblob import TextBlob
 from dataclasses import dataclass
@@ -10,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/', methods= ['GET'])
 def home_page():
-    data_set = {'Page': 'Home', 'Message': 'Successfully loaded the Home page', 'Timestamp': time.time()}
+    data_set = {'Page': 'Home', 'Message': 'Successfully loaded the Home page'}
     json_dump = json.dumps(data_set)
 
     return json_dump
