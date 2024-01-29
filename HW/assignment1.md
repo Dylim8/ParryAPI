@@ -17,6 +17,15 @@ a single project, due to the difference in real-time collaboration, their featur
 *2.5:* <br>
 JBGE stands for "Just Barely Good Enough." It refers to a practice or approach where the minimum necessary effort or detail is applied, particularly in documenting code or project requirements. <br>
 
+*4.2 & 4.4:* <br>
+![image](https://github.com/Dylim8/ParryAPI/assets/50117181/dd12532a-18df-44af-880f-72c6d46a680e)
+(can be reached from this) Adding all the times to find the longest will give us the critical path. 
+
+*4.6* <br>
+Expect unexpected delays and plan as many steps as you can knowing risk factors
+*4.8* <br>
+Ignoring any issues and trying to pile more developers on a task expecting things to go faster
+
 *5.3:* <br>
 Functionality:<br>
 b. Let the user specify website log-in parameters.<br>
