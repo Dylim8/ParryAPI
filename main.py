@@ -1,10 +1,21 @@
 from flask import *
+#from fastapi import FastAPI
+
 import json
 
 from textblob import TextBlob
 from dataclasses import dataclass
 from textblob_sentiment_script import Mood
 from textblob_sentiment_script import get_mood
+"""
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"Hello": "World"}
+
+"""
+
 
 app = Flask(__name__)
 
@@ -27,3 +38,4 @@ def request_page():
 
 if __name__ == '__main__':
     app.run(port=7777)
+
