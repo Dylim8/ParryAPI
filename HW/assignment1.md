@@ -46,3 +46,26 @@ p. Send a text message to an administrator if an upload/download fails.<br>
 
 Performance:<br>
 g. Make uploads/downloads transfer at least 8 Mbps.<br>
+
+*5.9:* <br>
+Must-Have Features:
+The ability to select letters to guess the word.
+Displaying the correct letters in their positions when guessed right.
+Showing a part of Mr. Bones's skeleton for each incorrect guess.
+The "New Game" button to start a new game with a random mystery word.
+A win-or-lose message upon completion of the game.
+
+Should-Have Features:
+A hint option that could give a definition or context to the mystery word.
+Animations for building Mr. Bones's skeleton to enhance the visual feedback of the game.
+A score or progress tracker to provide ongoing feedback to the user.
+
+Could-Have Features:
+Sound effects or music to improve user engagement.
+Difficulty levels (easy, medium, hard) where the number of allowed incorrect guesses varies.
+Customizable themes or backgrounds to personalize the gaming experience.
+
+Won't-Have Features (for the current release):
+Multiplayer functionality to play with friends, which could complicate the design.
+An online leaderboard, which would require backend infrastructure.
+In-game purchases, as this could shift the focus of the initial design.
