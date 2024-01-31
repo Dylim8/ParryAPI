@@ -1,0 +1,32 @@
+
+
+Evaluation and Feedback
+CMSI 4072 project ~ Spring 2024
+Dylan Lim
+ParryAPI project
+==============================
+
+Proposal Document:
+------------------
+   Nice work on the document.  The description is at high enough level to
+   give the reader an overview, and includes enough about the technology and
+   the appication interface to let the reader know what this is about.
+
+   The justification section is also well done, and states clearly why this
+   is an important tool for the environment you address.  Anything that will
+   potentially abate the amount of discontent in the world is a good idea,
+   and you are to be commended!
+
+Proposal Presentation:
+----------------------
+   Good job on the presentation!  The slides, although minimal, look great,
+   your justification of both the project goals and the applicability to the
+   course are well-thought-out and clear.  This is a very useful project!
+   Your presentation skills were very professional.
+
+   Good work overall.
+
+=============================================================================
+your score:  5% out of 5% which is an A-plus
+
+Great job on this presentation and proposal and great start to the semester!
