@@ -15,7 +15,7 @@ ParryAPI is expected to deliver real-time analysis with minimal latency.<br>
 ***5.3.1*** Response Time <br>
 ***5.3.1.1*** ParryAPI shall process and return sentiment analysis within 2 seconds of receiving user input.<br>
 
-***5.4*** Environment Requirements <br>
+***5.4 Environment Requirements*** <br>
 ***5.4.1*** Development Environment Requirements <br>
 ***5.4.1.1*** ParryAPI development requires Python 3.8, Flask for the API, and NLTK for VADER. <br>
 
