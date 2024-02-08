@@ -56,71 +56,75 @@ game_phrases_abr = [
     "glhf",
     "ggwp"
 ]
-
-# test start
-print('')
-print('the following are tests that compare the results of the 3 models(textblob, vader, and parry)')
-print('--------------------------------------------------------------------------------------------')
-
+    
 # standard phrases
-print('basic texts and phrases:')
-print('--------------------------------------------------------------------------------------------')
-for phrase in standard_phrases:
-    print("phrase: ", phrase)
+def standard_test():
+    print('basic texts and phrases:')
+    print('--------------------------------------------------------------------------------------------')
+    for phrase in standard_phrases:
+        print("phrase: ", phrase)
 
-    # textblob
-    mood: Mood = get_mood(phrase, threshold=0.3)
-    print("textblob: ", mood)
+        # textblob
+        mood: Mood = get_mood(phrase, threshold=0.3)
+        print("textblob: ", mood)
 
-    # vader
-    vs = vader.polarity_scores(phrase)
-    print("vader: ", vs)
+        # vader
+        vs = vader.polarity_scores(phrase)
+        print("vader: ", vs)
 
-    # parry
-    ps = parry.polarity_scores(phrase)
-    print("parry: ", ps)
-
-    print('')
-print('--------------------------------------------------------------------------------------------')
+        # parry
+        ps = parry.polarity_scores(phrase)
+        print("parry: ", ps)
+        print('')
+    print('--------------------------------------------------------------------------------------------')
 
 # game phrases
-print('basic game phrases:')
-print('--------------------------------------------------------------------------------------------')
-for phrase in game_phrases:
-    print("phrase: ", phrase)
+def game_test():
+    print('basic game phrases:')
+    print('--------------------------------------------------------------------------------------------')
+    for phrase in game_phrases:
+        print("phrase: ", phrase)
 
-    # textblob
-    mood: Mood = get_mood(phrase, threshold=0.3)
-    print("textblob: ", mood)
+        # textblob
+        mood: Mood = get_mood(phrase, threshold=0.3)
+        print("textblob: ", mood)
 
-    # vader
-    vs = vader.polarity_scores(phrase)
-    print("vader: ", vs)
+        # vader
+        vs = vader.polarity_scores(phrase)
+        print("vader: ", vs)
 
-    # parry
-    ps = parry.polarity_scores(phrase)
-    print("parry: ", ps)
-
-    print('')
-print('--------------------------------------------------------------------------------------------')
+        # parry
+        ps = parry.polarity_scores(phrase)
+        print("parry: ", ps)
+        print('')
+    print('--------------------------------------------------------------------------------------------')
 
 # abreviated game phrases
-print('basic abreviated game phrases:')
-print('--------------------------------------------------------------------------------------------')
-for phrase in game_phrases_abr:
-    print("phrase: ", phrase)
+def abr_game_test():
+    print('basic abreviated game phrases:')
+    print('--------------------------------------------------------------------------------------------')
+    for phrase in game_phrases_abr:
+        print("phrase: ", phrase)
 
-    # textblob
-    mood: Mood = get_mood(phrase, threshold=0.3)
-    print("textblob: ", mood)
+        # textblob
+        mood: Mood = get_mood(phrase, threshold=0.3)
+        print("textblob: ", mood)
 
-    # vader
-    vs = vader.polarity_scores(phrase)
-    print("vader: ", vs)
+        # vader
+        vs = vader.polarity_scores(phrase)
+        print("vader: ", vs)
 
-    # parry
-    ps = parry.polarity_scores(phrase)
-    print("parry: ", ps)
+        # parry
+        ps = parry.polarity_scores(phrase)
+        print("parry: ", ps)
+        print('')
+    print('--------------------------------------------------------------------------------------------')
 
+if __name__ == '__main__':
+    # test start
     print('')
-print('--------------------------------------------------------------------------------------------')
+    print('the following are tests that compare the results of the 3 models(textblob, vader, and parry)')
+    print('--------------------------------------------------------------------------------------------')
+    standard_test()
+    game_test()
+    abr_game_test()
