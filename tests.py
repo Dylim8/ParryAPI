@@ -37,9 +37,30 @@ standard_phrases = [
     "The feedback on this has been predominantly negative."
 ]
 
+# game phrases
+game_phrases = [
+    "good game",
+    "nice try",
+    "nice shot",
+    "good luck",
+    "well played",
+    "good luck have fun",
+    "good game well played"
+]
+game_phrases_abr = [
+    "gg",
+    "nt",
+    "ns",
+    "gl",
+    "wp",
+    "glhf",
+    "ggwp"
+]
+
 # test start
 print('')
 print('the following are tests that compare the results of the 3 models(textblob, vader, and parry)')
+print('--------------------------------------------------------------------------------------------')
 
 # standard phrases
 print('basic texts and phrases:')
@@ -62,3 +83,44 @@ for phrase in standard_phrases:
     print('')
 print('--------------------------------------------------------------------------------------------')
 
+# game phrases
+print('basic game phrases:')
+print('--------------------------------------------------------------------------------------------')
+for phrase in game_phrases:
+    print("phrase: ", phrase)
+
+    # textblob
+    mood: Mood = get_mood(phrase, threshold=0.3)
+    print("textblob: ", mood)
+
+    # vader
+    vs = vader.polarity_scores(phrase)
+    print("vader: ", vs)
+
+    # parry
+    ps = parry.polarity_scores(phrase)
+    print("parry: ", ps)
+
+    print('')
+print('--------------------------------------------------------------------------------------------')
+
+# abreviated game phrases
+print('basic abreviated game phrases:')
+print('--------------------------------------------------------------------------------------------')
+for phrase in game_phrases_abr:
+    print("phrase: ", phrase)
+
+    # textblob
+    mood: Mood = get_mood(phrase, threshold=0.3)
+    print("textblob: ", mood)
+
+    # vader
+    vs = vader.polarity_scores(phrase)
+    print("vader: ", vs)
+
+    # parry
+    ps = parry.polarity_scores(phrase)
+    print("parry: ", ps)
+
+    print('')
+print('--------------------------------------------------------------------------------------------')

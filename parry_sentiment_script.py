@@ -8,6 +8,7 @@ additional_terms = {
     'nt': 1.0,  
     'gg': 1.3,  
     'gl': 1.0,
+    'hf': 1.0,
     'wp': 1.1,
     'ns': 1.0,
     'ggwp': 1.0,
