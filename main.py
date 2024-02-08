@@ -1,25 +1,23 @@
 from flask import *
-#from fastapi import FastAPI
 
 import json
 
-#Textblob 
+# Textblob 
 from textblob import TextBlob
 from dataclasses import dataclass
 from textblob_sentiment_script import Mood
 from textblob_sentiment_script import get_mood
 
-#Vader
+# Vader
 import nltk
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-#Parry
+# Parry
 from parry_sentiment_script import additional_terms
-
 
 app = Flask(__name__)
 
-#Homepage
+# Homepage
 @app.route('/', methods= ['GET'])
 def home_page():
     data_set = {'Page': 'Home', 'Message': 'Successfully loaded the Home page'}
@@ -27,21 +25,21 @@ def home_page():
 
     return json_dump
 
-#Textblob
+# Textblob
 @app.route('/textblob/<text>', methods=['GET'])
 def textblob_request(text):
     mood: Mood = get_mood(text, threshold=0.3)
     result = mood
     return jsonify(result)
 
-#Vader
+# Vader
 @app.route('/vader/<text>', methods=['GET'])
 def vader_request(text):
     vs = vader.polarity_scores(text)
     result = vs
     return jsonify(result)
 
-#Parry
+# Parry
 @app.route('/parry/<text>', methods=['GET'])
 def parry_request(text):
     vs = parry.polarity_scores(text)
