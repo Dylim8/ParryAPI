@@ -56,8 +56,8 @@ game_phrases_abr = [
     "glhf",
     "ggwp"
 ]
-    
-# standard phrases
+
+# standard phrases 
 def standard_test():
     print('basic texts and phrases:')
     print('--------------------------------------------------------------------------------------------')

@@ -35,30 +35,28 @@ def training():
             print(f"'{word}' is in the lexicon with a sentiment score of {analyzer.lexicon[word.lower()]}")
         else:
             print(f"'{word}' is not in the lexicon ")
-            update_unknown_words_file(word, "parry_unknown_words.txt")
-
-def update_unknown_words_file(word, file_path = "parry_unknown_words.txt"):
-    # Load existing data into a dictionary
-    word_tally = {}
+            update_unknown_words(word)
+            
+def update_unknown_words(word, file_path="parry_unknown_words.txt"):
+    found = False
+    updated_lines = []
     try:
         with open(file_path, "r") as file:
-            for line in file:
-                word, count = line.strip().split(':')
-                word_tally[word] = int(count)
+            lines = file.readlines()
+            for line in lines:
+                existing_word, count = line.strip().split(':')
+                if existing_word == word.lower():
+                    count = int(count) + 1
+                    line = f"{existing_word}:{count}\n"
+                    found = True
+                updated_lines.append(line)
+        if not found:
+            updated_lines.append(f"{word.lower()}:1\n")
+        with open(file_path, "w") as file:
+            file.writelines(updated_lines)
     except FileNotFoundError:
-        pass  # If the file doesn't exist, proceed with an empty dictionary
-
-    # Update the dictionary with the new word
-    word = word.lower()  # Ensure consistency in casing
-    if word in word_tally:
-        word_tally[word] += 1
-    else:
-        word_tally[word] = 1
-
-    # Write the updated dictionary back to the file
-    with open(file_path, "w") as file:
-        for word, count in word_tally.items():
-            file.write(f"{word}:{count}\n")
+        with open(file_path, "w") as file:
+            file.write(f"{word.lower()}:1\n")
 
 if __name__ == '__main__':
     vader_update()
