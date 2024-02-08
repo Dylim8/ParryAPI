@@ -42,8 +42,8 @@ def vader_request(text):
 # Parry
 @app.route('/parry/<text>', methods=['GET'])
 def parry_request(text):
-    vs = parry.polarity_scores(text)
-    result = vs
+    ps = parry.polarity_scores(text)
+    result = ps
     return jsonify(result)
 
 if __name__ == '__main__':
