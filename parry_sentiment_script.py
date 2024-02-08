@@ -10,13 +10,17 @@ additional_terms = {
     'gl': 1.0,
     'wp': 1.1,
     'ns': 1.0,
+    'ggwp': 1.0,
     'kys': -2.0
 }
 
-
-if __name__ == '__main__':
+def vader_update():
     analyzer.lexicon.update(additional_terms)
     print('updated')
+
+
+if __name__ == '__main__':
+    vader_update()
     while True:
         text: str = input('Text: ')
         vs = analyzer.polarity_scores(text)
