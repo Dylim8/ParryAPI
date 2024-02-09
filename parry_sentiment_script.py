@@ -13,7 +13,8 @@ additional_terms = {
     'ns': 1.0,
     'ggwp': 1.0,
     'glhf': 1.0,
-    'kys': -2.0
+    'kys': -2.0,
+    'uninstall':-1.0
 }
 
 def vader_update():
