@@ -62,6 +62,6 @@ def update_unknown_words(word, file_path="parry_unknown_words.txt"):
 if __name__ == '__main__':
     vader_update()
     while True:
-        testing()
-        #training()
+        #testing()
+        training()
     
