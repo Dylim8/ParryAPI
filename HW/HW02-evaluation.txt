@@ -1,0 +1,44 @@
+
+Evaluation and Feedback
+CMSI 4072 project ~ Spring 2024
+Dylan Lim
+ParryAPI project
+Evaluation for homework02
+===============================
+
+5-1 component-based vs service-oriented             5 of  5 points
+5-2 most appropriate architecture for tictactoe     5 of  5 points
+5-4 internet chess appropriate architecture         5 of  5 points
+5-6 database for ClassyDraw                         5 of  5 points
+5-8 state machine diagram for floats                6 of 10 points
+6-1 compare/contrast ClassyDraw subclasses         10 of 10 points
+6-2 inheritance diagram from 6-1                    6 of 10 points
+
+
+Total possible score: 50 points
+
+EVALUATION
+============================================================================
+Your score: 42 out of 50 = 84.0% which is a B
+
+Comments:
+---------
+Nice work on this assignment.  Very complete answers!
+
+On 5.2 you make a good case for component-based architecture for tic-tac-toe
+but I wonder if that isn't a bit of overkill for such a simple application.
+Perhaps a monolithic architecture would be sufficient?  Unless you are into
+planning for a 4x4 or a 3D version extension...
+
+On 5.6 likewise, the ClassyDraw application simply draws and stores, and the
+operating system can be responsible for saving the resulting files.  You do
+make a good case for a database, but I wonder what the tables look like?
+
+On 5.8 you were supposed to DRAW the state diagram not DESCRIBE the state
+diagram.  That's what the word "diagram" means ~ a drawing...  *grin*  Your
+description seems correct though...
+
+On 6.2 Hmmm.... same thing here... you need a diagram.
+
+Otherwise, good job on this, you're doing well this semester overall, Dylan!
+

@@ -1,0 +1,58 @@
+
+
+Evaluation and Feedback
+CMSI 4072 project ~ Spring 2024
+Dylan Lim
+ParryAPI project
+==============================
+
+Software Requirements Specification Document:
+---------------------------------------------
+-- Introduction Section
+   Excellent introduction, just the right amount of detail.  Nothing to
+   add, nothing else needed.
+
+-- Functional Requirements
+   You really need more requirements here.  I realize that you are relying
+   upon the tools to give you a determination about toxicity, but there
+   needs to be more about how that will work.  What is the lexicon you will
+   use?  Does that get fed into the tool?  Is the analysis of the tool done
+   automatically?  Are there things you will 'tweak' or change about the
+   tool's algorithm that make it different so that there are requirements
+   you will need to specify for that?  How will the output appear to the
+   user?  Will it be in a chat window or displayed on a web page?  Is that
+   left up to the user of your API?  Can the user of your API modify any of
+   the parameters that are used by your tool?
+
+   I think you see what I mean.  For something this complex, there should be
+   quite a bit more functionality specified than three requirements.
+
+-- Performance Requirements
+   The phrase "real-time analysis with minimal latency" can be summed up as
+   "near-real-time analysis response time".  The phrase "real-time" has a
+   specific meaning in terms of computing environments, and this ain't that.
+   "Real-time" responses are understood to be on the order of milliseconds,
+   and sometimes microseconds.  Real-time processing fails if not completed
+   within a specified deadline relative to an event; deadlines must always
+   be met, regardless of system load.  If you specify sentiment analysis
+   response within two seconds, that's not real-time.
+
+-- Environment Requirements
+   This one requirement section needs a bit more explanation as to what you
+   mean by "standard cloud platforms".  It needs more than just "AWS", which
+   by the way you should spell out and THEN follow with the acronym at first
+   use, like "...Amazon Web Services (AWS)..." ~ after that you can use the
+   acronym by itself.  This goes for all acronyms you use in your document.
+
+   Also, you specify the software you need for development, but you don't
+   provide any idea of what kind of hardware is needed.  How much processor
+   'horsepower' is required?  How much memory?  Do you use the graphics
+   processor?  If so, which one or how much memory, or so on and so on...
+
+=============================================================================
+your score:  9% out of 10% which is an A-minus
+
+All in all, not a bad first effort, you just need to fill in more specifics.
+
+Make the changes as suggested above, including many more requirements for
+the second submission and you'll get the full 10% on this document.
