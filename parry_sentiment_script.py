@@ -52,7 +52,7 @@ def update_unknown_words(word, file_path="parry_unknown_words.txt"):
                     found = True
                 updated_lines.append(line)
         if not found:
-            updated_lines.append(f"{word.lower()}:1\n")
+            updated_lines.append(f"{word.lower()}:1\n")                                                         
         with open(file_path, "w") as file:
             file.writelines(updated_lines)
     except FileNotFoundError:

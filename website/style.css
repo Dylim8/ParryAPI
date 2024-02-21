@@ -1,0 +1,44 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #001F3F; /* Dark blue, almost black background */
+}
+
+header {
+    background-color: white; /* White header */
+    color: #004080; /* Dark blue text color for contrast against the white background */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #004080; /* Dark blue links for contrast and coherence with the header text color */
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    color: white; /* Ensure text visibility on dark background */
+}
+
+footer {
+    background-color: #003366; /* A bit lighter than the body but still within the dark blue spectrum */
+    color: #CCCCCC; /* Light grey for text, ensuring readability without stark contrast */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8em; /* Slightly smaller text for a less intrusive appearance */
+    border-top: 1px solid #004080; /* Adds a subtle separator without heavy contrast */
+}
