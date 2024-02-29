@@ -1,0 +1,45 @@
+
+
+Evaluation and Feedback
+CMSI 4072 project ~ Spring 2024
+Dylan Lim
+ParryAPI project
+=============================================
+
+Software Development Plan Document:
+---------------------------------------------
+-- General Comments
+   The document seems incomplete.  Several sections reference things which
+   are not included or which will perhaps be included in later revisions.
+
+-- Introduction Section
+   This section is adequate, so you don't need to do more to it.
+
+-- Architectural Design Section
+   Section 6.2.2 needs more information at the architectural level to define
+   how the major sections will communicate with each other.
+
+   Section 6.2.3 needs to have diagrams of some kind [UML or otherwise] that
+   describe the parts and their associations with each other; this should be
+   different from 6.2.2 since it shows associations not data flow.
+
+-- CSC and CSU Descriptions Section
+   This is the "Detailed Design" section in which you should have diagrmas
+   and descriptions of the details of each part.  Every part of the project
+   should have its own separate paragraph, along with descriptions of any
+   data structures used to transfer data between the parts.
+
+-- Database Design Section
+   This is essentially the same thing as the previous section, but strictly
+   describing the database for the project, if any.  There should be an ER
+   diagram [if the database is relational] or a document/graph description
+   if those types of databases are used.
+
+=============================================================================
+your score:  7% out of 10% which is a C
+
+You should fill out the remainder of the document as described in the above
+comments.
+
+Make the changes for the second submission and you'll get the full points on
+this document.
