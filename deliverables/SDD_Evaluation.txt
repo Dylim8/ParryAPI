@@ -6,7 +6,7 @@ Dylan Lim
 ParryAPI project
 =============================================
 
-Software Development Plan Document:
+Software Design Description Document:
 ---------------------------------------------
 -- General Comments
    The document seems incomplete.  Several sections reference things which
@@ -43,3 +43,10 @@ comments.
 
 Make the changes for the second submission and you'll get the full points on
 this document.
+
+=============================================================================
+SECOND EVALUATION:
+
+your score:  7% out of 10% which is a C
+
+No updates made to the document that I can see...
