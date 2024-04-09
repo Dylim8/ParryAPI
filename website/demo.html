@@ -11,18 +11,25 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/demo">Demo</a></li>
+                <li><a href="demo.html">Demo</a></li>
                 <li><a href="#documentation">Documentation</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="demo">
-            <h1>Interactive Demo</h1>
-            <p>Try ParryAPI by entering any text below and see how it analyzes sentiment:</p>
+        <section id="simpleDemo">
+            <h1>Simple Sentiment Analysis Demo</h1>
+            <p>Enter a sentence to analyze its sentiment:</p>
             <textarea id="userInput" rows="4" cols="50" placeholder="Type your text here..."></textarea>
             <button id="analyzeButton">Analyze Text</button>
             <div id="analysisResult"></div>
+        </section>
+
+        <section id="chatDemo">
+            <h1>Chatroom Demo</h1>
+            <div id="chatArea"></div>
+            <textarea id="messageInput" rows="2" placeholder="Type your message here..."></textarea>
+            <button id="sendButton">Send</button>
         </section>
     </main>
     <footer>

@@ -1,14 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Light grey background */
-    color: #333; /* Dark grey text for contrast */
+    background-color: #f0f0f0;
+    color: #333;
 }
 
-header {
-    background-color: #004d99; /* Deep blue */
-    color: #ffffff; /* White text */
-    padding: 20px 0;
+header, footer {
+    background-color: #004d99;
+    color: #ffffff;
     text-align: center;
+    padding: 20px 0;
 }
 
 nav ul {
@@ -27,8 +27,8 @@ nav ul li a {
 }
 
 button {
-    background-color: #007bff; /* Bootstrap primary blue */
-    color: #ffffff; /* White text */
+    background-color: #007bff;
+    color: #ffffff;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -36,7 +36,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 textarea {
@@ -45,20 +45,39 @@ textarea {
     margin-top: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* So padding doesn't increase its width */
+    box-sizing: border-box;
+}
+
+#chatArea {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 300px;
+    overflow-y: auto;
 }
 
 #analysisResult {
-    background-color: #e9ecef; /* Light grey background for contrast */
+    background-color: #e9ecef;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
 }
+.message {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-footer {
-    background-color: #004d99;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+.hidden-message {
+    background-color: #f0f0f0;
+    color: #f0f0f0;
+    border: 1px dashed #ccc;
+}
+
+.hidden-message:hover {
+    background-color: #f8f9fa;
+    border: 1px dashed #999;
 }
