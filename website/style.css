@@ -102,16 +102,33 @@ textarea {
     margin-bottom: 20px; /* Adds spacing between the demos and the footer */
 }
 
-main {
-    padding: 0 10px; /* Default padding for smaller screens */
-}
-
 header h1 { /*welcome message */
     color: #379cff; /* Darker blue */
 }
 
+main {
+    padding: 20px 10%; /* Consistent top and bottom padding, and responsive side padding */
+    max-width: 1200px; /* Maximum width to limit content stretch */
+    margin-left: auto; /* Center the content block horizontally */
+    margin-right: auto; /* Center the content block horizontally */
+}
+
 @media (min-width: 768px) {
     main {
-        padding: 0 500px; /* Adjusted padding for larger screens for better content spacing */
+        padding: 20px 25%; /* Increased side padding for larger devices */
     }
+}
+
+/* dark mode  */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode header, .dark-mode footer {
+    background-color: #0d253f;
+}
+
+.dark-mode nav ul li a {
+    color: #ffffff;
 }

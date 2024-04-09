@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('applyThresholdsButton').addEventListener('click', function() {
         applyThresholds();
     });
+    // Listener for dark mode
+    document.addEventListener('DOMContentLoaded', loadDarkModePreference);
 });
 
 // Function to handle simple sentiment analysis
@@ -112,4 +114,37 @@ function displayMessage(message, sentiment) {
 
     chatArea.appendChild(messageElement);
     chatArea.scrollTop = chatArea.scrollHeight; // Auto-scroll to the newest message
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Rest of your event listeners...
+
+    // Event listener for dark mode toggle button
+    const darkModeToggleButton = document.getElementById('darkModeToggle');
+    if (darkModeToggleButton) {
+        darkModeToggleButton.addEventListener('click', function() {
+            toggleDarkMode();
+            saveDarkModePreference();
+        });
+    }
+});
+
+// Function to toggle dark mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    saveDarkModePreference();
+}
+
+// Function to save dark mode preference
+function saveDarkModePreference() {
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+}
+
+// Function to load dark mode preference
+function loadDarkModePreference() {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
 }
