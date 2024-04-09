@@ -14,7 +14,11 @@ additional_terms = {
     'ggwp': 1.0,
     'glhf': 1.0,
     'kys': -2.0,
-    'uninstall':-1.0
+    'uninstall':-1.0,
+    'gaywad' : -1.0,
+    'chink': -1.8,
+    'nigga': -2.3,
+    'cuck': -1.6
 }
 
 def vader_update():
@@ -62,6 +66,6 @@ def update_unknown_words(word, file_path="parry_unknown_words.txt"):
 if __name__ == '__main__':
     vader_update()
     while True:
-        #testing()
-        training()
+        testing()
+        #training()
     

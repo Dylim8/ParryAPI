@@ -1,14 +1,14 @@
-body, html {
-    margin: 0;
-    padding: 0;
+body {
     font-family: Arial, sans-serif;
-    background-color: #001F3F; /* Dark blue, almost black background */
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark grey text for contrast */
 }
 
 header {
-    background-color: white; /* White header */
-    color: #004080; /* Dark blue text color for contrast against the white background */
-    padding: 10px 0;
+    background-color: #004d99; /* Deep blue */
+    color: #ffffff; /* White text */
+    padding: 20px 0;
+    text-align: center;
 }
 
 nav ul {
@@ -22,23 +22,43 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #004080; /* Dark blue links for contrast and coherence with the header text color */
     text-decoration: none;
+    color: #ffffff;
 }
 
-section {
+button {
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: #ffffff; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* So padding doesn't increase its width */
+}
+
+#analysisResult {
+    background-color: #e9ecef; /* Light grey background for contrast */
     padding: 20px;
-    color: white; /* Ensure text visibility on dark background */
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
 footer {
-    background-color: #003366; /* A bit lighter than the body but still within the dark blue spectrum */
-    color: #CCCCCC; /* Light grey for text, ensuring readability without stark contrast */
+    background-color: #004d99;
+    color: #ffffff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 0.8em; /* Slightly smaller text for a less intrusive appearance */
-    border-top: 1px solid #004080; /* Adds a subtle separator without heavy contrast */
+    margin-top: 20px;
 }

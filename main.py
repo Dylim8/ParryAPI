@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask, request, jsonify, send_from_directory
 
 import json
 
@@ -15,15 +15,20 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # Parry
 from parry_sentiment_script import additional_terms
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='website')
 
+# WEBSITE START
 # Homepage
-@app.route('/', methods= ['GET'])
-def home_page():
-    data_set = {'Page': 'Home', 'Message': 'Successfully loaded the Home page'}
-    json_dump = json.dumps(data_set)
+@app.route('/')
+def serve_homepage():
+    return send_from_directory('website', 'index.html')
 
-    return json_dump
+# Serving the demo page
+@app.route('/demo')
+def serve_demo_page():
+    return send_from_directory('website', 'demo.html')
+
+#WEBSITE END
 
 # Textblob
 @app.route('/textblob/<text>', methods=['GET'])
@@ -50,5 +55,5 @@ if __name__ == '__main__':
     vader = SentimentIntensityAnalyzer()
     parry = SentimentIntensityAnalyzer()
     parry.lexicon.update(additional_terms)
-    app.run(debug=True, port=7777)
+    app.run(debug=True, port=5500)
    
