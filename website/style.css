@@ -33,8 +33,16 @@ nav ul li:last-child {
 nav ul li a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 25px; /* Adjusted font size */
-    padding: 5px 10px; /* Adds padding for better clickability and visual appeal */
+    font-size: 25px;
+    padding: 10px 15px; /* Add more padding to create the box size */
+    border-radius: 5px; /* Optional: if you want rounded corners for the boxes */
+    background-color: transparent; /* Invisible by default */
+    transition: background-color 0.3s; /* Smooth transition for the background color */
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #0056b3; /* Color change on hover */
+    color: #ffffff; /* Keep the text color the same, or change as desired */
 }
 
 button {
