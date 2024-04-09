@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParryAPI Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/demo">Demo</a></li>
+                <li><a href="/documentation">Documentation</a></li>
+            </ul>
+        </nav>
+        <h1>ParryAPI Documentation</h1>
+    </header>
+    
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to ParryAPI, a cutting-edge sentiment analysis tool designed to enhance community interactions across digital platforms. Our API leverages sophisticated Natural Language Processing (NLP) algorithms to accurately determine the emotional tone behind text inputs. With ParryAPI, you can automatically detect negative sentiments, such as hate speech or aggressive comments, ensuring your online spaces remain respectful and positive.</p>
+            <p>ParryAPI is built for ease of integration and scalability, making it the perfect tool for developers, content moderators, and community managers seeking to maintain healthy digital environments.</p>
+        </section>
+
+        <section id="basicUsage">
+            <h2>Basic Usage Instructions (Placeholder)</h2>
+            <h3>Quick Start Guide</h3>
+            <ol>
+                <li>Obtain your API key by signing up on the ParryAPI website.</li>
+                <li>Use the provided API endpoint to send HTTP requests: <code>https://api.parry.com/v1/analyze</code></li>
+                <li>Send a <code>POST</code> request with a JSON body containing the text you wish to analyze.</li>
+                <li>The API will respond with a JSON object containing the sentiment analysis results.</li>
+            </ol>
+            <h3>Using the API in Your Application</h3>
+            <p>Integrate ParryAPI in your application by adding HTTP request functionality where you handle user-generated content. Replace <code>Your_Api_Key</code> with the key provided to you.</p>
+            <pre><code class="language-javascript">
+const apiURL = 'https://api.parry.com/v1/analyze';
+const apiKey = 'Your_Api_Key';
+const textToAnalyze = 'I love playing online games with my friends!';
+
+fetch(apiURL, {
+    method: 'POST',
+    headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ text: textToAnalyze })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+            </code></pre>
+            <h3>Error Handling(hopefully in the future)</h3>
+            <p>ParryAPI will provide error messages in the response body if something goes wrong, along with appropriate HTTP status codes.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact Us | More Info</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

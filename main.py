@@ -28,6 +28,12 @@ def serve_homepage():
 def serve_demo_page():
     return send_from_directory('website', 'demo.html')
 
+# Serving the documentation page
+@app.route('/documentation')
+def serve_documation_page():
+    return send_from_directory('website', 'documentation.html')
+
+
 #WEBSITE END
 
 # Textblob
