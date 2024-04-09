@@ -1,11 +1,13 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 18px; /* Adjust this value as needed */
+    padding: 0; 
     background-color: #f0f0f0;
     color: #333;
 }
 
 header, footer {
-    background-color: #004d99;
+    background-color: #003972; 
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
@@ -14,6 +16,9 @@ header, footer {
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex; /* Aligns items horizontally */
+    justify-content: center; /* Centers the navigation items */
 }
 
 nav ul li {
@@ -21,9 +26,15 @@ nav ul li {
     margin-right: 20px;
 }
 
+nav ul li:last-child {
+    margin-right: 0; /* Removes margin from the last item */
+}
+
 nav ul li a {
     text-decoration: none;
     color: #ffffff;
+    font-size: 25px; /* Adjusted font size */
+    padding: 5px 10px; /* Adds padding for better clickability and visual appeal */
 }
 
 button {
@@ -45,7 +56,7 @@ textarea {
     margin-top: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures padding doesn't affect the overall width */
 }
 
 #chatArea {
@@ -58,26 +69,40 @@ textarea {
     overflow-y: auto;
 }
 
-#analysisResult {
+#analysisResult, .message {
     background-color: #e9ecef;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
-}
-.message {
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .hidden-message {
     background-color: #f0f0f0;
     color: #f0f0f0;
     border: 1px dashed #ccc;
+    cursor: pointer;
 }
 
 .hidden-message:hover {
     background-color: #f8f9fa;
     border: 1px dashed #999;
+    color: #333; /* Text color changes when hovering over hidden messages */
+}
+
+#chatDemo, #simpleDemo {
+    margin-bottom: 20px; /* Adds spacing between the demos and the footer */
+}
+
+main {
+    padding: 0 10px; /* Default padding for smaller screens */
+}
+
+header h1 { /*welcome message */
+    color: #379cff; /* Darker blue */
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 0 500px; /* Adjusted padding for larger screens for better content spacing */
+    }
 }
