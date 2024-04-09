@@ -1,4 +1,3 @@
-// Document ready function to set up event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Event listener for the "Analyze Text" button
     document.getElementById('analyzeButton').addEventListener('click', function(e) {
@@ -12,7 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
             sendMessage();
         }
     });
+
+    // Event listener for the "Apply Thresholds" button
+    document.getElementById('applyThresholdsButton').addEventListener('click', function() {
+        applyThresholds();
+    });
 });
+
 // Function to handle simple sentiment analysis
 function analyzeText() {
     const userInput = encodeURIComponent(document.getElementById('userInput').value);
@@ -35,21 +40,31 @@ function analyzeText() {
     });
 }
 
+// Initialize thresholds with default values
+let positiveThreshold = 0.2;
+let negativeThreshold = -0.2;
+
+// Function to apply user-defined thresholds specifically for the chat
+function applyChatThresholds() {
+    positiveThreshold = parseFloat(document.getElementById('positiveThresholdChat').value) || 0.2;
+    negativeThreshold = parseFloat(document.getElementById('negativeThresholdChat').value) || -0.2;
+    console.log(`Chat thresholds updated. Positive: ${positiveThreshold}, Negative: ${negativeThreshold}`);
+}
+
+// Function to handle message sentiment analysis with custom thresholds
 function analyzeMessageSentiment(message, callback) {
     const encodedMessage = encodeURIComponent(message);
-    const url = `http://127.0.0.1:5500/parry/${encodedMessage}`;
+    const url = `http://127.0.0.1:5500/parry/${encodedMessage}?posThreshold=${positiveThreshold}&negThreshold=${negativeThreshold}`;
 
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        // Assuming the API response includes a 'compound' score
-        const compoundScore = data.compound; // Adjust this line if the score is nested differently
-
-        // Classify sentiment based on compound score
+        // The API should classify sentiment based on the provided thresholds
+        const compoundScore = data.compound; // Adjust if the score is nested differently
         let sentiment;
-        if (compoundScore <= -0.2) {
+        if (compoundScore <= negativeThreshold) {
             sentiment = 'Negative';
-        } else if (compoundScore >= 0.2) {
+        } else if (compoundScore >= positiveThreshold) {
             sentiment = 'Positive';
         } else {
             sentiment = 'Neutral';
@@ -62,6 +77,8 @@ function analyzeMessageSentiment(message, callback) {
         callback(message, 'Error'); // Use 'Error' as sentiment in case of failure
     });
 }
+
+document.getElementById('applyThresholdsButton').addEventListener('click', applyThresholds);
 
 // Function to handle sending chat messages
 function sendMessage() {

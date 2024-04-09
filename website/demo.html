@@ -24,13 +24,20 @@
             <button id="analyzeButton">Analyze Text</button>
             <div id="analysisResult"></div>
         </section>
-
+        
         <section id="chatDemo">
             <h1>Chatroom Demo</h1>
-            <p>Try out the chat room, negative messages will be hidden until clicked on:</p>
+            <p>Let's take a look at how ParryAPI can be used in a chatroom:</p>
+            <!-- Customization for sentiment thresholds -->
+            <label for="positiveThresholdChat">Positive Threshold:</label>
+            <input type="number" id="positiveThresholdChat" step="0.01" value="0.2">
+            <label for="negativeThresholdChat">Negative Threshold:</label>
+            <input type="number" id="negativeThresholdChat" step="0.01" value="-0.2">
+            <button onclick="applyChatThresholds()">Apply Thresholds</button>
+            <!-- Chat area and message input -->
             <div id="chatArea"></div>
             <textarea id="messageInput" rows="2" placeholder="Type your message here..."></textarea>
-            <button id="sendButton">Send</button>
+            <button id="sendButton" onclick="sendMessage()">Send</button>
         </section>
     </main>
     <footer>
