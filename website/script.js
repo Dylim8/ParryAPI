@@ -19,6 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Listener for dark mode
     document.addEventListener('DOMContentLoaded', loadDarkModePreference);
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Rest of your event listeners...
+
+    // Event listener for dark mode toggle button
+    const darkModeToggleButton = document.getElementById('darkModeToggle');
+    if (darkModeToggleButton) {
+        darkModeToggleButton.addEventListener('click', function() {
+            toggleDarkMode();
+            saveDarkModePreference();
+        });
+    }
+});
 
 // Function to handle simple sentiment analysis
 function analyzeText() {
@@ -115,19 +127,6 @@ function displayMessage(message, sentiment) {
     chatArea.appendChild(messageElement);
     chatArea.scrollTop = chatArea.scrollHeight; // Auto-scroll to the newest message
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Rest of your event listeners...
-
-    // Event listener for dark mode toggle button
-    const darkModeToggleButton = document.getElementById('darkModeToggle');
-    if (darkModeToggleButton) {
-        darkModeToggleButton.addEventListener('click', function() {
-            toggleDarkMode();
-            saveDarkModePreference();
-        });
-    }
-});
 
 // Function to toggle dark mode
 function toggleDarkMode() {
