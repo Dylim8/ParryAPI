@@ -18,7 +18,8 @@ additional_terms = {
     'gaywad' : -1.0,
     'chink': -1.8,
     'nigga': -2.3,
-    'cuck': -1.6
+    'cuck': -1.6,
+    'dickwad': -1.3
 }
 
 def vader_update():
