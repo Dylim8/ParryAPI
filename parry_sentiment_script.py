@@ -5,21 +5,7 @@ analyzer = SentimentIntensityAnalyzer()
 
 # custom words and sentiment scores (-4.0-4.0)
 additional_terms = {
-    'nt': 1.0,  
-    'gg': 1.3,  
-    'gl': 1.0,
-    'hf': 1.0,
-    'wp': 1.1,
-    'ns': 1.0,
-    'ggwp': 1.0,
-    'glhf': 1.0,
-    'kys': -2.0,
-    'uninstall':-1.0,
-    'gaywad' : -1.0,
-    'chink': -1.8,
-    'nigga': -2.3,
-    'cuck': -1.6,
-    'dickwad': -1.3
+    # redacted for public
 }
 
 def vader_update():
