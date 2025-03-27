@@ -14,25 +14,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listener for the "Apply Thresholds" button
     document.getElementById('applyThresholdsButton').addEventListener('click', function() {
-        applyThresholds();
+        applyChatThresholds(); // Make sure the function name matches the defined function
     });
-    // Listener for dark mode
-    document.addEventListener('DOMContentLoaded', loadDarkModePreference);
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Rest of your event listeners...
 
-    // Event listener for dark mode toggle button
+    // Load dark mode preferences on page load
+    loadDarkModePreference();
+
     const darkModeToggleButton = document.getElementById('darkModeToggle');
     if (darkModeToggleButton) {
-        darkModeToggleButton.addEventListener('click', function() {
-            toggleDarkMode();
-            saveDarkModePreference();
-        });
+    darkModeToggleButton.addEventListener('click', function() {
+        toggleDarkMode();
+        saveDarkModePreference();
+    });
+    } else {
+        console.log('Dark mode toggle button not found');
     }
 });
 
-// Function to handle simple sentiment analysis
 function analyzeText() {
     const userInput = encodeURIComponent(document.getElementById('userInput').value);
     const url = `http://127.0.0.1:5500/parry/${userInput}`;
@@ -54,18 +52,12 @@ function analyzeText() {
     });
 }
 
-// Initialize thresholds with default values
-let positiveThreshold = 0.2;
-let negativeThreshold = -0.2;
-
-// Function to apply user-defined thresholds specifically for the chat
 function applyChatThresholds() {
     positiveThreshold = parseFloat(document.getElementById('positiveThresholdChat').value) || 0.2;
     negativeThreshold = parseFloat(document.getElementById('negativeThresholdChat').value) || -0.2;
     console.log(`Chat thresholds updated. Positive: ${positiveThreshold}, Negative: ${negativeThreshold}`);
 }
 
-// Function to handle message sentiment analysis with custom thresholds
 function analyzeMessageSentiment(message, callback) {
     const encodedMessage = encodeURIComponent(message);
     const url = `http://127.0.0.1:5500/parry/${encodedMessage}?posThreshold=${positiveThreshold}&negThreshold=${negativeThreshold}`;
@@ -73,8 +65,7 @@ function analyzeMessageSentiment(message, callback) {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        // The API should classify sentiment based on the provided thresholds
-        const compoundScore = data.compound; // Adjust if the score is nested differently
+        const compoundScore = data.compound;
         let sentiment;
         if (compoundScore <= negativeThreshold) {
             sentiment = 'Negative';
@@ -88,59 +79,49 @@ function analyzeMessageSentiment(message, callback) {
     })
     .catch(error => {
         console.error('Error analyzing sentiment:', error);
-        callback(message, 'Error'); // Use 'Error' as sentiment in case of failure
+        callback(message, 'Error');
     });
 }
 
-document.getElementById('applyThresholdsButton').addEventListener('click', applyThresholds);
-
-// Function to handle sending chat messages
 function sendMessage() {
     const messageInput = document.getElementById('messageInput');
     const messageText = messageInput.value.trim();
     if (messageText) {
-        analyzeMessageSentiment(messageText, displayMessage); // Pass displayMessage as callback
-        messageInput.value = ''; // Clear input after sending
+        analyzeMessageSentiment(messageText, displayMessage);
+        messageInput.value = '';
     }
 }
 
-// Function to display messages in the chat area
 function displayMessage(message, sentiment) {
     const chatArea = document.getElementById('chatArea');
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
-    
-    // Apply different class if the sentiment is Negative
+
     if (sentiment === 'Negative') {
         messageElement.classList.add('hidden-message');
-        messageElement.textContent = message; // Set text content to message
-        
-        // Event listener to reveal message on click
+        messageElement.textContent = message;
         messageElement.addEventListener('click', function() {
             this.classList.remove('hidden-message');
-            this.style.color = "#721c24"; // Optional: Change text color after revealing
+            this.style.color = "#721c24";
         });
     } else {
-        messageElement.textContent = `${message} (${sentiment})`; // Display message with sentiment for non-negative messages
+        messageElement.textContent = `${message} (${sentiment})`;
     }
 
     chatArea.appendChild(messageElement);
-    chatArea.scrollTop = chatArea.scrollHeight; // Auto-scroll to the newest message
+    chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-// Function to toggle dark mode
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     saveDarkModePreference();
 }
 
-// Function to save dark mode preference
 function saveDarkModePreference() {
     const isDarkMode = document.body.classList.contains('dark-mode');
     localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 }
 
-// Function to load dark mode preference
 function loadDarkModePreference() {
     const darkMode = localStorage.getItem('darkMode');
     if (darkMode === 'enabled') {

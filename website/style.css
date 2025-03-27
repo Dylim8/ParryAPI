@@ -1,13 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    font-size: 18px; /* Adjust this value as needed */
-    padding: 0; 
+    font-size: 18px;
+    padding: 0;
     background-color: #f0f0f0;
     color: #333;
+    margin: 0;
 }
 
 header, footer {
-    background-color: #003972; 
+    background-color: #003972;
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
@@ -17,32 +18,27 @@ nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Aligns items horizontally */
-    justify-content: center; /* Centers the navigation items */
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
-}
-
-nav ul li:last-child {
-    margin-right: 0; /* Removes margin from the last item */
+    margin: 0 20px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #ffffff;
     font-size: 25px;
-    padding: 10px 15px; /* Add more padding to create the box size */
-    border-radius: 5px; /* Optional: if you want rounded corners for the boxes */
-    background-color: transparent; /* Invisible by default */
-    transition: background-color 0.3s; /* Smooth transition for the background color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s;
 }
 
 nav ul li a:hover, nav ul li a:focus {
-    background-color: #0056b3; /* Color change on hover */
-    color: #ffffff; /* Keep the text color the same, or change as desired */
+    background-color: #0056b3;
 }
 
 button {
@@ -64,25 +60,20 @@ textarea {
     margin-top: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* Ensures padding doesn't affect the overall width */
+    box-sizing: border-box;
 }
 
-#chatArea {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px; 
-    margin-bottom: 10px;
-    height: 300px;
-    overflow-y: auto;
-}
-
-#analysisResult, .message {
+#chatArea, #analysisResult, .message {
     background-color: #e9ecef;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#chatArea {
+    height: 300px;
+    overflow-y: auto;
 }
 
 .hidden-message {
@@ -95,31 +86,30 @@ textarea {
 .hidden-message:hover {
     background-color: #f8f9fa;
     border: 1px dashed #999;
-    color: #333; /* Text color changes when hovering over hidden messages */
+    color: #333;
 }
 
 #chatDemo, #simpleDemo {
-    margin-bottom: 20px; /* Adds spacing between the demos and the footer */
+    margin-bottom: 20px;
 }
 
-header h1 { /*welcome message */
-    color: #379cff; /* Darker blue */
+header h1 {
+    color: #379cff;
 }
 
 main {
-    padding: 20px 10%; /* Consistent top and bottom padding, and responsive side padding */
-    max-width: 1200px; /* Maximum width to limit content stretch */
-    margin-left: auto; /* Center the content block horizontally */
-    margin-right: auto; /* Center the content block horizontally */
+    padding: 20px 5%; /* Reduced side padding for better utilization of space on smaller screens */
+    max-width: 1200px;
+    margin: auto; /* Centers the main content */
 }
 
 @media (min-width: 768px) {
     main {
-        padding: 20px 25%; /* Increased side padding for larger devices */
+        padding: 20px 10%; /* Increased side padding for larger screens */
     }
 }
 
-/* dark mode  */
+/* Dark Mode */
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -131,4 +121,15 @@ body.dark-mode {
 
 .dark-mode nav ul li a {
     color: #ffffff;
+}
+
+.dark-mode button {
+    background-color: #333;
+    color: #ccc;
+}
+
+.dark-mode textarea, .dark-mode input {
+    background-color: #333;
+    color: #ccc;
+    border-color: #666;
 }
