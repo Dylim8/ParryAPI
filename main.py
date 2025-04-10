@@ -1,3 +1,19 @@
+from flask import Flask, jsonify
+from flask_cors import CORS
+from parry_sentiment_script import vader_update, analyzer
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/analyze/<text>', methods=['GET'])
+def analyze_text(text):
+    vader_update()
+    result = analyzer.polarity_scores(text)
+    return jsonify(result)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+'''
 from flask import Flask, request, jsonify, send_from_directory
 
 import json
@@ -63,3 +79,4 @@ if __name__ == '__main__':
     parry.lexicon.update(additional_terms)
     app.run(debug=True, port=5500)
    
+'''
