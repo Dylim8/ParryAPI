@@ -1,20 +1,19 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_cors import CORS
-from parry_sentiment_script import load_analyzer
-from parry_sentiment_script import load_analyzer
+from parry_sentiment_script import analyze_text
 
 app = Flask(__name__)
 CORS(app)
 
-analyzer = load_analyzer()
+@app.route("/")
+def home():
+    return "ParryAPI is live"
 
-@app.route('/analyze/<text>', methods=['GET'])
-def analyze_text(text):
-    result = analyzer.polarity_scores(text)
-    return jsonify(result)
+@app.route("/analyze/<string:message>")
+def analyze(message):
+    result = analyze_text(message)
+    return result
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 '''
 from flask import Flask, request, jsonify, send_from_directory
