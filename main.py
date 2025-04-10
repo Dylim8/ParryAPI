@@ -1,9 +1,12 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from parry_sentiment_script import vader_update, analyzer
+from parry_sentiment_script import load_analyzer
 
 app = Flask(__name__)
 CORS(app)
+
+analyzer = load_analyzer()
 
 @app.route('/analyze/<text>', methods=['GET'])
 def analyze_text(text):
@@ -13,6 +16,7 @@ def analyze_text(text):
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
 '''
 from flask import Flask, request, jsonify, send_from_directory
 

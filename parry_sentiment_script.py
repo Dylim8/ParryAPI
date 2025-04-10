@@ -1,58 +1,55 @@
-import nltk
+import os
+import re
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-analyzer = SentimentIntensityAnalyzer()
+def normalize_obfuscated_text(text):
+    substitutions = {
+        '@': 'a',
+        '4': 'a',
+        '3': 'e',
+        '!': 'i',
+        '1': 'i',
+        '|': 'i',
+        '$': 's',
+        '5': 's',
+        '0': 'o',
+        '*': '',
+        '#': 'h',
+        '+': 't'
+    }
 
-# custom words and sentiment scores (-4.0-4.0)
-additional_terms = {
-    # redacted for public
-}
+    pattern = re.compile('|'.join(re.escape(k) for k in substitutions.keys()))
 
-def vader_update():
-    analyzer.lexicon.update(additional_terms)
-    print('updated')
+    def replace(match):
+        return substitutions[match.group(0)]
 
-def testing():
-    print('testing')
-    text: str = input('Text: ')
-    vs = analyzer.polarity_scores(text)
-    print('{:-<65} {}'.format(text, str(vs)))
+    return pattern.sub(replace, text.lower())
 
-def training():
-    print('training')
-    text: str = input('Text: ')
-    words = text.split()
-    for word in words:
-        if word.lower() in analyzer.lexicon:  # Convert to lowercase to match the lexicon's format
-            print(f"'{word}' is in the lexicon with a sentiment score of {analyzer.lexicon[word.lower()]}")
-        else:
-            print(f"'{word}' is not in the lexicon ")
-            update_unknown_words(word)
-            
-def update_unknown_words(word, file_path="parry_unknown_words.txt"):
-    found = False
-    updated_lines = []
-    try:
-        with open(file_path, "r") as file:
-            lines = file.readlines()
-            for line in lines:
-                existing_word, count = line.strip().split(':')
-                if existing_word == word.lower():
-                    count = int(count) + 1
-                    line = f"{existing_word}:{count}\n"
-                    found = True
-                updated_lines.append(line)
-        if not found:
-            updated_lines.append(f"{word.lower()}:1\n")                                                         
-        with open(file_path, "w") as file:
-            file.writelines(updated_lines)
-    except FileNotFoundError:
-        with open(file_path, "w") as file:
-            file.write(f"{word.lower()}:1\n")
+def load_analyzer(custom_lexicon_path="custom_lexicon.txt"):
+    analyzer = SentimentIntensityAnalyzer()
+    if os.path.exists(custom_lexicon_path):
+        with open(custom_lexicon_path, "r") as file:
+            for line in file:
+                if line.strip() and not line.startswith("#"):
+                    try:
+                        word, score = line.strip().split()
+                        analyzer.lexicon[word] = float(score)
+                    except ValueError:
+                        print(f"Skipping malformed line: {line.strip()}")
+        print("✅ Custom lexicon loaded.")
+    else:
+        print("⚠️ No custom lexicon found.")
+    return analyzer
 
-if __name__ == '__main__':
-    vader_update()
+# Initialize analyzer with custom terms
+analyzer = load_analyzer()
+
+def analyze_text(text):
+    normalized = normalize_obfuscated_text(text)
+    return analyzer.polarity_scores(normalized)
+
+if __name__ == "__main__":
     while True:
-        testing()
-        #training()
-    
+        raw = input("Text: ")
+        result = analyze_text(raw)
+        print(result)
