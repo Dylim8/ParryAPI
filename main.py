@@ -10,7 +10,6 @@ analyzer = load_analyzer()
 
 @app.route('/analyze/<text>', methods=['GET'])
 def analyze_text(text):
-    vader_update()
     result = analyzer.polarity_scores(text)
     return jsonify(result)
 
